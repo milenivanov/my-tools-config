@@ -30,3 +30,9 @@ vnoremap <silent> # :<C-U>
     \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 colorscheme desert
+
+" Powerline
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set laststatus=2  " Always show statusline
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
