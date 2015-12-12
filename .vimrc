@@ -6,6 +6,11 @@ set number
 set encoding=utf-8
 set fileencoding=utf-8
 set ignorecase
+set hlsearch
+
+nmap ; :
+
+set guioptions-=T  "remove toolbar
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
