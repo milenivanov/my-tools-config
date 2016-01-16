@@ -110,3 +110,5 @@ fi
 function gvim () { (/usr/bin/gvim -f "$@" &) }
 
 . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+
+export PATH=/opt/cmake-3.4.1-Linux-x86_64/bin:${PATH}
