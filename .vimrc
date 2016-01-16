@@ -2,6 +2,7 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+set relativenumber
 set number
 set encoding=utf-8
 set fileencoding=utf-8
@@ -36,3 +37,5 @@ set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 set laststatus=2  " Always show statusline
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
+
+execute pathogen#infect()
