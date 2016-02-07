@@ -8,10 +8,14 @@ set encoding=utf-8
 set fileencoding=utf-8
 set ignorecase
 set hlsearch
+set colorcolumn=80
+set list listchars=tab:>-,trail:·,extends:>  "show trailing whitespace
 
 nmap ; :
 
 set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 set directory=~/tmp
 
@@ -29,6 +33,8 @@ vnoremap <silent> # :<C-U>
     \gvy?<C-R><C-R>=substitute(
     \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
     \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+autocmd BufWritePre *.cpp,*.h :%s/\s\+$//e  "trim trailing whitespace
 
 colorscheme desert
 
