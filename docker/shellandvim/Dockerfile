@@ -52,5 +52,9 @@ RUN git clone https://github.com/tpope/vim-sensible.git $HOME/.vim/bundle/vim-se
 # CtrlP
     git clone https://github.com/kien/ctrlp.vim.git $HOME/.vim/bundle/ctrlp.vim
 
+# Bashrc setup
+
+COPY .profile .bashrc .bash_aliases $HOME/
+
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
