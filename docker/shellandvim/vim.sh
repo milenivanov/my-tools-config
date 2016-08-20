@@ -2,6 +2,8 @@ set -o errexit
 
 VIMRCFILE=${1}
 
+apt-get -y install vim wget fontconfig
+
 # setup pathogen vim plugin manager
 mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
 wget -P $HOME/.vim/autoload https://tpo.pe/pathogen.vim
