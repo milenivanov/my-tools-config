@@ -30,6 +30,9 @@ echo "let g:airline#extensions#tabline#left_alt_sep = '|'" >> $HOME/.vimrc
 # CtrlP
 git clone https://github.com/kien/ctrlp.vim.git $HOME/.vim/bundle/ctrlp.vim
 
+# NERDTree
+git clone https://github.com/scrooloose/nerdtree.git $HOME/.vim/bundle/nerdtree
+
 # Complete vimrc configuration
 cat $VIMRCFILE >> $HOME/.vimrc
 
