@@ -1,0 +1,86 @@
+set nocompatible
+set ruler
+set smartindent
+syntax enable
+filetype plugin indent on
+set guifont=Monospace\ 11
+set hlsearch
+set ignorecase
+set expandtab
+set shiftround
+set sw=4
+set ts=4
+set showmatch
+set relativenumber
+
+colo desert
+
+" Keyboard shortcuts
+nnoremap ; :
+let mapleader=","
+
+" Don't change my buffers, open tabs instead
+set swb=usetab,newtab
+
+" Set colorcolumn if available
+if v:version >= 703
+    set colorcolumn=80
+endif
+
+au BufRead,BufNewFile *.gob2,*.gtb,*.gob set filetype=gob
+au BufRead,BufNewFile *.gobxml set filetype=xml
+
+set textwidth=80
+set formatoptions=croqn
+set comments=s1:/*,mb:*,ex:*/
+
+set directory=$HOME/tmp
+set ul=500
+
+set nu
+set ai
+set sm
+set cin
+set bs=indent,eol,start
+
+set guioptions-=m  " remove menu bar
+set guioptions-=T  " remove toolbar
+set guioptions-=r  " remove right-hand scroll bar
+set guioptions-=L  " remove left-hand scroll bar
+
+set list
+set listchars=tab:>-,trail:§
+
+" Key remappings
+
+" centre the current line on the screen (vertically)
+nmap <space> zz
+
+" Enable search for visually selected text
+" source: http://vim.wikia.com/wiki/VimTip171
+
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+" Enable XML syntax-highlight for BML files
+au BufReadPost *.bml set syntax=xml
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+autocmd BufWritePre     *.h :call TrimWhiteSpace()
+autocmd BufWritePre     *.cpp :call TrimWhiteSpace()
+autocmd BufWritePre     *.py :call TrimWhiteSpace()
+autocmd BufWritePre     *.xml :call TrimWhiteSpace()
+autocmd BufWritePre     *.xsd :call TrimWhiteSpace()
+
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber

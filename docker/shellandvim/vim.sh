@@ -1,11 +1,11 @@
 set -o errexit
 
+VIMRCFILE=${1}
+
 # setup pathogen vim plugin manager
 mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
 wget -P $HOME/.vim/autoload https://tpo.pe/pathogen.vim
 echo "execute pathogen#infect()" >> $HOME/.vimrc
-echo "syntax on"                 >> $HOME/.vimrc
-echo "filetype plugin indent on" >> $HOME/.vimrc
 
 # Powerline fonts
 mkdir -p $HOME/.fonts $HOME/.config/fontconfig/conf.d
@@ -29,4 +29,7 @@ echo "let g:airline#extensions#tabline#left_alt_sep = '|'" >> $HOME/.vimrc
 
 # CtrlP
 git clone https://github.com/kien/ctrlp.vim.git $HOME/.vim/bundle/ctrlp.vim
+
+# Complete vimrc configuration
+cat $VIMRCFILE >> $HOME/.vimrc
 

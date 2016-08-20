@@ -18,8 +18,11 @@ WORKDIR $HOME
 
 RUN chown -R root:root $HOME
 
-COPY vim.sh /tmp/
-RUN /tmp/vim.sh
+COPY prepare.sh /tmp/
+RUN /tmp/prepare.sh
+
+COPY vim.sh vimrc /tmp/
+RUN /tmp/vim.sh /tmp/vimrc
 
 COPY .profile .bashrc .bash_aliases $HOME/
 
