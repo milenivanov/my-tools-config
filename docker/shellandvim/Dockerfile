@@ -27,6 +27,7 @@ COPY vim.sh vimrc /tmp/
 RUN /tmp/vim.sh /tmp/vimrc
 
 COPY powerline.sh /tmp/
+COPY .config $HOME/.config
 RUN /tmp/powerline.sh
 
 
