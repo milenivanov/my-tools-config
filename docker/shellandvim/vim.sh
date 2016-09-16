@@ -2,19 +2,12 @@ set -o errexit
 
 VIMRCFILE=${1}
 
-apt-get -y install vim wget fontconfig
+apt-get -y install vim fontconfig
 
 # setup pathogen vim plugin manager
 mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
 wget -P $HOME/.vim/autoload https://tpo.pe/pathogen.vim
 echo "execute pathogen#infect()" >> $HOME/.vimrc
-
-# Powerline fonts
-mkdir -p $HOME/.fonts $HOME/.config/fontconfig/conf.d
-wget -P $HOME/.fonts https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-wget -P $HOME/.config/fontconfig/conf.d/ https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf && \
-    fc-cache -vf $HOME/.fonts/ && \
-    echo "set guifont=Droid\\ Sans\\ Mono\\ 10"
 
 # Sensible
 git clone https://github.com/tpope/vim-sensible.git $HOME/.vim/bundle/vim-sensible

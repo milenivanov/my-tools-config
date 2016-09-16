@@ -11,7 +11,7 @@ RUN echo $DEBIAN_FRONTEND > /etc/container_environment/DEBIAN_FRONTEND && \
 RUN apt-get -y update && \
     apt-get -y install apt-utils && \
     apt-get -y upgrade && \
-    apt-get -y install git tmux
+    apt-get -y install git tmux wget
 
 RUN mkdir $HOME
 WORKDIR $HOME
@@ -25,6 +25,9 @@ RUN /tmp/prepare.sh
 
 COPY vim.sh vimrc /tmp/
 RUN /tmp/vim.sh /tmp/vimrc
+
+COPY powerline.sh /tmp/
+RUN /tmp/powerline.sh
 
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
