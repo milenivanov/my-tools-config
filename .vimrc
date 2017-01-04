@@ -12,6 +12,7 @@ set colorcolumn=80
 set list listchars=tab:>-,trail:·,extends:>  "show trailing whitespace
 
 nmap ; :
+nmap <RightMouse> <LeftMouse>*
 
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
